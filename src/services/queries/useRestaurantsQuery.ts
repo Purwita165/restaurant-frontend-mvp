@@ -1,19 +1,14 @@
+// src/services/queries/useRestaurantsQuery.ts
 import { useQuery } from '@tanstack/react-query';
 import axios from '@/services/api/axios';
 import type { Restaurant } from '@/types/restaurant';
 
-export default function useRestaurantsQuery(
-  params?: {
-    q?: string; // 👈 Tambahkan ini
-    category?: string;
-    sort?: 'name-asc' | 'price-asc' | 'price-desc' | 'rating-desc';
-  }
-) {
+export default function useRestaurantsQuery() {
   return useQuery<Restaurant[], Error>({
-    queryKey: ['restaurants', params],
+    queryKey: ['restaurants'],
     queryFn: async () => {
-      const { data } = await axios.get('/api/resto', { params }); // 👈 Ini penting!
-      return data.data.restaurants;
+      const { data } = await axios.get('/api/resto');
+      return data.data.restaurants; // 👈 INI YANG BENAR — ambil dari dalam "data"
     },
     staleTime: 60_000,
   });
