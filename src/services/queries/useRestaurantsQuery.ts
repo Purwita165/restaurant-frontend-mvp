@@ -8,7 +8,7 @@ export default function useRestaurantsQuery() {
     queryKey: ['restaurants'],
     queryFn: async () => {
       const { data } = await axios.get('/api/resto');
-      return data.data.restaurants; // 👈 INI YANG BENAR — ambil dari dalam "data"
+      return data.data.restaurants; // 👈 INI BARIS KRITIS
     },
     staleTime: 60_000,
   });
