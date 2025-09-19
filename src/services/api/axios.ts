@@ -1,14 +1,13 @@
-// src/services/api/axios.ts
 import axios from 'axios';
 
-// ✅ INI YANG BENAR — ambil dari environment variable Vite
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-// Jika tidak ada, fallback ke localhost (hanya untuk dev)
-const baseURL = API_BASE_URL || 'http://localhost:8080';
+if (!API_BASE_URL) {
+  throw new Error('VITE_API_BASE_URL is not defined! Check your Vercel environment variables.');
+}
 
 const api = axios.create({
-  baseURL,
+  baseURL: API_BASE_URL,
   timeout: 10000,
 });
 
