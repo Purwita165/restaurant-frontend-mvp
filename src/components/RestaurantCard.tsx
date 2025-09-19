@@ -1,4 +1,4 @@
-// src/components/RestaurantCard.tsx
+// src/components/RestaurantCard.tsx — VERSI YANG SUDAH BENAR
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { StarIcon } from 'lucide-react';
