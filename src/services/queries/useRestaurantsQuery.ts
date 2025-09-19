@@ -8,7 +8,7 @@ export default function useRestaurantsQuery() {
     queryKey: ['restaurants'],
     queryFn: async () => {
       const { data } = await axios.get('/api/resto');
-      return data.data.restaurants; // 👈 INI BARIS KRITIS
+      return data.data.restaurant
     },
     staleTime: 60_000,
   });
